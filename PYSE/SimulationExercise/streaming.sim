@@ -1,0 +1,126 @@
+external class demos = "/usr/share/demos/demos.atr";
+
+demos
+	begin
+		ref(bin) myBin;
+		ref(res) bitrate;
+		ref(tally) avgBitrate, veryGood;
+		ref(count) bitrateChanges, discarded;
+		ref(rdist) Ti;
+		ref(rdist) videoLength;
+		ref(rdist) customer_req_time;
+		ref(bdist) smallscreenDist;
+		integer b_max, b_min, b_step;
+		integer sessions;
+		real gamma;
+		
+		entity class generator;
+		begin
+			sessions:=1;
+			loop:
+				new Session(edit("Session", sessions)).schedule(now);
+				hold(customer_req_time.sample);
+				sessions := sessions+1;
+				repeat;
+		end;
+		
+		entity class Session;
+		begin
+			long real timestamp;
+			long real sessionLength;
+			long real timingInterval;
+			long real progress;
+			boolean smallscreen;
+			integer b;
+			timestamp := time;
+			smallscreen := smallscreenDist.sample;
+			
+			if bitrate.avail>=b_min then
+			begin
+				b := min(b_max, bitrate.avail);
+				bitrate.acquire(b);
+				sessionLength := videoLength.sample;
+				loop:
+					progress := time-timestamp;
+					timingInterval := Ti.sample;
+
+					avgBitrate.update(b);
+					
+					if smallscreen then
+					begin
+						if b>=4 then veryGood.update(1)
+						else veryGood.update(0);
+					end else
+					begin
+						if b>=6 then veryGood.update(1)
+						else veryGood.update(0);
+					end;
+					
+					if gamma = 0.0 then 
+					begin
+						hold(sessionLength); 
+						goto theEnd;
+					end;
+					
+					if (progress+timingInterval)>sessionLength then
+					begin 
+						timingInterval:=sessionLength-progress;
+						hold(timingInterval);
+						goto theEnd;
+					end;
+					hold(timingInterval);
+					
+					if bitrate.avail>b_min then
+					begin
+						if b ne min(b+b_step,b_max) then bitrateChanges.update(1);
+						bitrate.release(b);
+						bitrate.acquire(min(b+b_step,b_max));
+						b := min(b+b_step,b_max);
+					end else
+					begin
+						if b ne max(b-b_step,b_min) then bitrateChanges.update(1);
+						bitrate.release(b);
+						bitrate.acquire(max(b-b_step,b_min));
+						b := max(b-b_step,b_min);
+					end;
+					
+					if time>=timestamp+sessionLength then
+					begin
+						theEnd:
+							bitrate.release(b);
+							myBin.give(1);
+					end else
+						repeat;
+			end else
+				discarded.update(1);
+			
+		end;
+		
+		b_max := 8;
+		b_min := 2;
+		b_step := 2;
+		gamma := 1.0;
+		
+		
+		bitrate 			:- new res("Router", 100);
+		videoLength 		:- new negexp("Video length", 1/90);
+		!Ti 					:- new negexp("Ti", gamma);
+		Ti	 				:- new constant("Ti", 1/gamma);
+		customer_req_time 	:- new negexp("Customer request time", 1/4);
+		myBin 				:- new bin("Bin", 0);
+		avgBitrate			:- new tally("Bitrate");
+		veryGood			:- new tally("Very good");
+		bitrateChanges		:- new count("Bitrate changes");
+		discarded			:- new count("Discarded users");
+		smallscreenDist		:- new draw("Small screen", 0.70);
+		
+		
+		while replication<=10 do
+		begin
+			new generator("Generator").schedule(0.0);
+			myBin.take(5000);
+			noreport;
+			replicate;
+		end;
+
+	end;

@@ -1,0 +1,28 @@
+begin
+ external class demos = "/usr/share/demos/demos.atr";
+ demos begin
+  integer NEXT_CALL := 30*60;
+  integer MAX_CONNECTION_TIME := 15;
+  real FIXED_CONNECTION_TIME := 0.2;
+  real DISCONNECTION_TIME := 0.2;
+  integer AVG_VARIABLE_CONNECTION_TIME := 3;
+  integer AVG_CONVERSATION_TIME := 3*60;
+
+  duration :- new NegExp("duration", AVG_CONVERSATION_TIME);
+
+  Entity class Subscriber;
+  begin;
+   
+  end;
+
+  Entity class Timer;
+  begin;
+
+  end;
+
+
+  new Timer("Time1").schedule(0);
+
+
+ end;
+end;

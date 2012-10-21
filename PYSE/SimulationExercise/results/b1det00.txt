@@ -1,0 +1,40 @@
+
+
+
+                       CLOCK TIME =      0.000
+**********************************************************************
+*                                                                    *
+*           T O T A L  R E P L I C A T I O N  R E P O R T            *
+*                                                                    *
+**********************************************************************
+
+
+
+                             C O U N T S
+                             ***********
+
+ TITLE      /   (RE)SET/   OBS/  AVERAGE/EST.ST.DV/ STD.ERR.
+Bitrate chan      0.000     10     0.000     0.000     0.000
+Discarded us      0.000     10  4320.700    73.509    23.246
+
+
+                            T A L L I E S
+                            *************
+
+TITLE       /   (RE)SET/   OBS/  AVERAGE/EST.ST.DV/ STD.ERR.
+Bitrate           0.000     10     7.7071.640&-0025.186&-003
+Very good         0.000     10     0.9782.211&-0036.990&-004
+
+
+                          R E S O U R C E S
+                          *****************
+
+TITLE       /   (RE)SET/   OBS/  % USAGE/EST.ST.DV/ AV. WAIT/EST.ST.DV
+Router            0.000     10    92.441     0.269     0.000     0.000
+
+
+                               B I N S
+                               *******
+
+TITLE       /   (RE)SET/   OBS/ AV. FREE/EST.ST.DV/ AV. WAIT/EST.ST.DV
+Bin               0.000     10  2490.681    23.415 37571.435   282.636

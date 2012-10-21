@@ -1,0 +1,86 @@
+begin
+	external class demos="/usr/share/demos/demos.atr";
+	demos
+	begin
+		ref(rdist) passiveTime, fixedConnectionTime, variableConnectionTime,
+			conversationTime, disconnectionTime, timerTime;
+		ref(Tally) callDuration;
+		real NEXT_CALL,
+			MAX_CONNECTION_TIME,
+			FIXED_CONNECTION_TIME,
+			DISCONNECTION_TIME,
+			AVG_VARIABLE_CONNECTION_TIME,
+			AVG_CONVERSATION_TIME,
+			SIM_TIME;
+		integer successfulCalls, lostCalls;
+		
+		entity class Subscriber;
+		begin
+			ref(Timer) timer2;
+			real callStartTime;
+			boolean register;
+			
+			passive:
+				register := false;
+				hold(passiveTime.sample);
+				
+			connection:
+				callStartTime := time;
+				timer2 :- new Timer("timer", this Subscriber);
+				timer2.schedule(0.0);
+				hold(fixedConnectionTime.sample + variableConnectionTime.sample);
+				if interrupted = 1 then 
+				begin
+					interrupted := 0; !reset interrupted;
+					lostCalls := lostCalls + 1;
+					goto disconnection;
+				end;
+				successfulCalls := successfulCalls + 1;
+				timer2.interrupt(1);
+				
+			conversation:
+				hold(conversationTime.sample);
+				register := true;
+				
+			disconnection:
+				hold(disconnectionTime.sample);
+				if register then
+					callDuration.update(time-callStartTime);
+				goto passive;
+		end;
+		
+		entity class Timer(subscriber2);ref(Subscriber) subscriber2;
+		begin
+			hold(timerTime.sample);
+			if interrupted = 0 then subscriber2.interrupt(1);
+		end;
+		
+		integer i;
+		
+		NEXT_CALL := 30*60;
+		MAX_CONNECTION_TIME := 15;
+		FIXED_CONNECTION_TIME := 0.2;
+		DISCONNECTION_TIME := 0.2;
+		AVG_VARIABLE_CONNECTION_TIME := 3;
+		AVG_CONVERSATION_TIME := 3*60;
+		SIM_TIME := 30*24*60*60; !simulate for 30 days;
+		
+		passiveTime :- new NegExp("passive",1/NEXT_CALL);
+		fixedConnectionTime :- new Constant("connectfixed",FIXED_CONNECTION_TIME);
+		variableConnectionTime :- new NegExp("connectvar",1/AVG_VARIABLE_CONNECTION_TIME);
+		conversationTime :- new NegExp("conversation",1/AVG_CONVERSATION_TIME);
+		disconnectionTime :- new Constant("disconnect",DISCONNECTION_TIME);
+		timerTime :- new Constant("timer",MAX_CONNECTION_TIME);
+		
+		callDuration :- new Tally("callduration");
+		
+		!start 20 subscriber2s;
+		for i := 1 step 1 until 20 do
+			new Subscriber(edit("subscr.",i)).schedule(0.0);
+			
+		hold(SIM_TIME);
+		
+		outText("Number of successful calls: ");outInt(successfulCalls, 10);outImage;
+		outText("Number of lost calls: ");outInt(lostCalls, 10);outImage;
+	end;
+end;
