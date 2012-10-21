@@ -1,0 +1,13 @@
+package oving3;
+
+/*
+ * @startuml
+ * class Card {
+ * 	String suit
+ * 	int face
+ * }
+ * @enduml
+ */
+class Card {
+	
+}

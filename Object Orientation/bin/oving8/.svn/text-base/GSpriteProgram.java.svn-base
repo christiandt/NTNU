@@ -1,0 +1,16 @@
+package oving8;
+
+import acm.graphics.GCanvas;
+import acm.program.GraphicsProgram;
+
+public class GSpriteProgram extends GraphicsProgram {
+	
+	public void run() {
+		GCircle circle = new GCircle(20.0);
+		circle.setLocation(50, 20);
+		GSprite sprite = new GBouncingObject("oving8/mover_on_target16x16.png");
+		sprite.setSpeed(20, 30);
+		add(circle);
+		add(sprite);
+	}
+}

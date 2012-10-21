@@ -1,0 +1,15 @@
+package oving3;
+
+/*
+ * @startuml
+ * class Person {
+ * 	String name
+ * 	Person mother
+ * 	Person father
+ * }
+ * Person --> "*" Person : children
+ * @enduml
+ */
+class Person {
+	
+}

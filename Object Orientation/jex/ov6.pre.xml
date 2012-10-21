@@ -1,0 +1,43 @@
+<exercise
+	title="Interfaces" 
+	compulsory="no" 
+	deadline="09.03.2011">
+
+	<objectives>
+		<obj>Learn about interfaces</obj>
+		<obj>Learn to implement and use the Comparable interface</obj>
+	</objectives>
+
+	<requirements>
+		<req>
+			Use Eclipse for writing and testing all parts of the exercise.
+		</req>
+		<req>
+			Use the JExercise tool to verify the code.
+		</req>
+		<req>
+			All classes must be defined/stored in package/folder oving6.
+		</req>
+		<req>
+			For classes; use the exact names and modifiers that are specified in the exercise.
+		</req>
+		<req>
+			For methods; use the exact name, parameter datatype, sequence of parameters, and 
+			datatype for return value, that are specified.
+		</req>
+		<req>
+			NB! Parameters and fields, and their types, are not always specified. If not, it can 
+			be deduced from the text and it is a part of the exercise to figure out what it has 
+			to be.
+		</req>
+	</requirements>
+
+	<reading>
+		<book title="Liang">
+			<chapter nr="14.4">Interfaces</chapter>
+			<chapter nr="14.5">Example: The Comparable Interface</chapter>
+		</book>
+	</reading>
+	
+	<comment></comment>
+</exercise>

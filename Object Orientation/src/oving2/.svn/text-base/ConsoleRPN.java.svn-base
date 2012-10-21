@@ -1,0 +1,14 @@
+package oving2;
+
+/*
+ * @startuml
+ * class ConsoleProgram {
+ * }
+ * class ConsoleRPN {
+ * 	Stack<Double> operandStack
+ * 	+void init()
+ * 	+void run()
+ * }
+ * ConsoleProgram <|-- ConsoleRPN
+ * @enduml
+ */

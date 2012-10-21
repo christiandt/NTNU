@@ -1,0 +1,16 @@
+package sokoban1;
+
+import acm.program.GraphicsProgram;
+
+/*
+ * @startuml
+ * class GraphicsSokoban {
+ * }
+ * class GraphicsProgram {
+ * }
+ * GraphicsProgram <|-- GraphicsSokoban
+ * @enduml
+ */
+
+public class GraphicsSokoban extends GraphicsProgram {
+}

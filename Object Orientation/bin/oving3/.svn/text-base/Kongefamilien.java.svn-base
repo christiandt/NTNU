@@ -1,0 +1,50 @@
+package oving3;
+
+
+/*
+ * @startuml
+ * object Kongefamilien
+ * 
+ * object Harald
+ * object Sonja
+ * object Martha
+ * object Ari
+ * object Haakon
+ * object "Mette-Marit" as MetteMarit
+ * object "Ingrid Alexandra" as Ingrid
+ * object "Sverre Magnus" as Sverre
+ * object "Maud Angelica" as Maud
+ * object "Leah Isadora" as Leah
+ * object "Emma Tallulah" as Emma
+ * 
+ * Harald --> "children" Haakon
+ * Harald --> "children" Martha
+ * Sonja --> "children" Haakon
+ * Sonja --> "children" Martha
+ * 
+ * Haakon --> "children" Ingrid
+ * Haakon --> "children" Sverre
+ * MetteMarit --> "children" Ingrid
+ * MetteMarit --> "children" Sverre
+ * 
+ * Martha --> "children" Maud
+ * Martha --> "children" Leah
+ * Martha --> "children" Emma
+ * Ari --> "children" Maud
+ * Ari --> "children" Leah
+ * Ari --> "children" Emma
+ * 
+ * Kongefamilien --> "harald" Harald
+ * Kongefamilien --> "sonja" Sonja
+ * Kongefamilien --> "martha" Martha
+ * Kongefamilien --> "ari" Ari
+ * Kongefamilien --> "haakon" Haakon
+ * Kongefamilien --> "metteMarit" MetteMarit
+ * Kongefamilien --> "ingrid" Ingrid
+ * Kongefamilien --> "sverre" Sverre
+ * Kongefamilien --> "maud" Maud
+ * Kongefamilien --> "leah" Leah
+ * Kongefamilien --> "emma" Emma
+ * 
+ * @enduml
+ */

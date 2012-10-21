@@ -1,0 +1,16 @@
+package sokoban1;
+
+import acm.program.ConsoleProgram;
+
+/*
+ * @startuml
+ * class ConsoleSokoban {
+ * }
+ * class ConsoleProgram {
+ * }
+ * ConsoleProgram <|-- ConsoleSokoban
+ * @enduml
+ */
+
+public class ConsoleSokoban extends ConsoleProgram {
+}

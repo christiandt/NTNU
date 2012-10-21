@@ -1,0 +1,45 @@
+<exercise
+	title="Encapsulation using constructors, getters, setters and other methods" 
+	compulsory="no" 
+	deadline="02.03.2011">
+
+	<objectives>
+		<obj>Learn about encapsulation</obj>
+		<obj>Learn about constructors</obj>
+	</objectives>
+
+	<requirements>
+		<req>
+			Use Eclipse for writing and testing all parts of the exercise.
+		</req>
+		<req>
+			Use the JExercise tool to verify the code.
+		</req>
+		<req>
+			The Card and CardDeck classes must be defined/stored in package/folder oving5.card and the Person class in oving5.person. The packages card and person are subpackages of oving5.
+		</req>
+		<req>
+			For classes; use the exact names and modifiers that are specified in the exercise.
+		</req>
+		<req>
+			For methods, use the exact name, parameter datatype, sequence of parameters, and 
+			datatype for return value that are specified.
+		</req>
+		<req>
+			NB! Parameters and fields, and their types, are not always specified. If not, it can 
+			be deduced from the text and it is a part of the exercise to figure out what it has 
+			to be.
+		</req>
+	</requirements>
+
+	<reading>
+		<book title="Liang">
+			<chapter nr="5.2">Defining a method</chapter>
+			<chapter nr="5.3">Calling a method</chapter>
+			<chapter nr="5.5">Passing parameters by values</chapter>
+			<chapter nr="8.2">Defining Classes for Objects</chapter>
+		</book>
+	</reading>
+	
+	<comment></comment>
+</exercise>

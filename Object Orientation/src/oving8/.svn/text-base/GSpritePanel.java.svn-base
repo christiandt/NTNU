@@ -1,0 +1,30 @@
+package oving8;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import acm.graphics.GCanvas;
+import acm.util.SwingTimer;
+
+public class GSpritePanel extends GCanvas implements ActionListener {
+
+	private SwingTimer timer;
+
+	public void startSprites(int timerRate) {
+		if (timer != null) {
+			timer.stop();
+		}
+		timer = new SwingTimer(timerRate, this);
+		timer.start();
+	}
+
+	public void stopSprites() {
+		if (timer != null) {
+			timer.stop();
+		}
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		// TODO: flytte alle "sprites" ett hakk
+	}
+}

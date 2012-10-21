@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jex:Exercise xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jex="platform:/plugin/no.hal.jex/model/jex.ecore" xmi:id="_" text="9" original="platform:/resource/ovinger-2011/jex/ov9.jex">
+  <javaElements xsi:type="jex:JavaPack" xmi:id="_javaElements_0" name="oving9">
+    <classes xmi:id="HighscoreView_javaElements_0_classes_0" name="HighscoreView" modifiers="public">
+      <members xsi:type="jex:JavaMethod" xmi:id="HighscoreView_javaElements_0_classes_0_members_0" name="HighscoreView" modifiers="public">
+        <parameters>HighscoreList</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" xmi:id="run_javaElements_0_classes_0_members_1" name="run" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethod" xmi:id="main_javaElements_0_classes_0_members_2" name="main" modifiers="public static" returnType="void">
+        <parameters>String[]</parameters>
+      </members>
+      <superclasses>GraphicsProgram</superclasses>
+      <superclasses>ListListener</superclasses>
+    </classes>
+    <classes xmi:id="ListListener_javaElements_0_classes_1" name="ListListener" modifiers="public" classKind="interfaceKind">
+      <members xsi:type="jex:JavaMethod" xmi:id="listChanged_javaElements_0_classes_1_members_0" name="listChanged" modifiers="public" returnType="void">
+        <parameters>ObservableList</parameters>
+        <parameters>int</parameters>
+        <parameters>int</parameters>
+      </members>
+    </classes>
+    <classes xmi:id="HighscoreList_javaElements_0_classes_2" name="HighscoreList" modifiers="public">
+      <members xsi:type="jex:JavaMethod" xmi:id="HighscoreList_javaElements_0_classes_2_members_0" name="HighscoreList" modifiers="public">
+        <parameters>int</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" xmi:id="addResult_javaElements_0_classes_2_members_1" name="addResult" modifiers="public" returnType="void">
+        <parameters>Comparable</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" xmi:id="iterator_javaElements_0_classes_2_members_2" name="iterator" modifiers="public" returnType="Iterator&lt;Comparable>"/>
+      <members xsi:type="jex:JavaMethod" xmi:id="addResult_javaElements_0_classes_2_members_3" name="addResult" modifiers="public" returnType="void">
+        <parameters>Comparable</parameters>
+      </members>
+      <superclasses>ObservableList</superclasses>
+      <superclasses>Iterable&lt;Comparable></superclasses>
+    </classes>
+    <classes xsi:type="jex:JavaClassTester" xmi:id="HighscoreListTest_javaElements_0_classes_3" name="HighscoreListTest" modifiers="public" testedElement="HighscoreList_javaElements_0_classes_2">
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testIterator_javaElements_0_classes_3_members_0" name="testIterator" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testAddResultOrderedLessThanMaxSize_javaElements_0_classes_3_members_1" name="testAddResultOrderedLessThanMaxSize" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testAddResultReversedLessThanMaxSize_javaElements_0_classes_3_members_2" name="testAddResultReversedLessThanMaxSize" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testAddResultOrderedMoreThanMaxSize_javaElements_0_classes_3_members_3" name="testAddResultOrderedMoreThanMaxSize" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testAddResultReversedMoreThanMaxSize_javaElements_0_classes_3_members_4" name="testAddResultReversedMoreThanMaxSize" modifiers="public" returnType="void"/>
+      <superclasses>TestCase</superclasses>
+    </classes>
+    <classes xmi:id="ObservableList_javaElements_0_classes_4" name="ObservableList" modifiers="public abstract">
+      <members xsi:type="jex:JavaMethod" xmi:id="addListListener_javaElements_0_classes_4_members_0" name="addListListener" modifiers="public" returnType="void">
+        <parameters>ListListener</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" xmi:id="removeListListener_javaElements_0_classes_4_members_1" name="removeListListener" modifiers="public" returnType="void">
+        <parameters>ListListener</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" xmi:id="getList_javaElements_0_classes_4_members_2" name="getList" modifiers="protected abstract" returnType="List"/>
+      <members xsi:type="jex:JavaMethod" xmi:id="addElement_javaElements_0_classes_4_members_3" name="addElement" modifiers="protected" returnType="void">
+        <parameters>int</parameters>
+        <parameters>Object</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" xmi:id="removeElement_javaElements_0_classes_4_members_4" name="removeElement" modifiers="protected" returnType="void">
+        <parameters>int</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" xmi:id="size_javaElements_0_classes_4_members_5" name="size" modifiers="public" returnType="int"/>
+      <members xsi:type="jex:JavaMethod" xmi:id="fireListChanged_javaElements_0_classes_4_members_6" name="fireListChanged" modifiers="protected" returnType="void">
+        <parameters>int</parameters>
+        <parameters>int</parameters>
+      </members>
+    </classes>
+    <classes xsi:type="jex:JavaClassTester" xmi:id="ObservableListTest_javaElements_0_classes_5" name="ObservableListTest" modifiers="public" testedElement="ObservableList_javaElements_0_classes_4">
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testGetList_javaElements_0_classes_5_members_0" name="testGetList" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testFireListChanged_javaElements_0_classes_5_members_1" name="testFireListChanged" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testAddListListener_javaElements_0_classes_5_members_2" name="testAddListListener" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testRemoveListListener_javaElements_0_classes_5_members_3" name="testRemoveListListener" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testAddElement_javaElements_0_classes_5_members_4" name="testAddElement" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testRemoveElement_javaElements_0_classes_5_members_5" name="testRemoveElement" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" xmi:id="testSize_javaElements_0_classes_5_members_6" name="testSize" modifiers="public" returnType="void"/>
+      <superclasses>TestCase</superclasses>
+    </classes>
+    <classes xmi:id="SokobanResult_javaElements_0_classes_6" name="SokobanResult" modifiers="public">
+      <members xsi:type="jex:JavaMethod" xmi:id="SokobanResult_javaElements_0_classes_6_members_0" name="SokobanResult" modifiers="public">
+        <parameters>String</parameters>
+        <parameters>int</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" xmi:id="toString_javaElements_0_classes_6_members_1" name="toString" modifiers="public" returnType="String"/>
+      <members xsi:type="jex:JavaMethod" xmi:id="getName_javaElements_0_classes_6_members_2" name="getName" modifiers="public" returnType="String"/>
+      <members xsi:type="jex:JavaMethod" xmi:id="getMoveCount_javaElements_0_classes_6_members_3" name="getMoveCount" modifiers="public" returnType="int"/>
+      <members xsi:type="jex:JavaMethod" xmi:id="compareTo_javaElements_0_classes_6_members_4" name="compareTo" modifiers="public" returnType="int">
+        <parameters>SokobanResult</parameters>
+      </members>
+      <superclasses>Comparable&lt;SokobanResult></superclasses>
+    </classes>
+    <classes xsi:type="jex:TestSuite" xmi:id="AllTests_javaElements_0_classes_7" name="AllTests" modifiers="public"/>
+  </javaElements>
+  <requirements xsi:type="jex:ExercisePart" xmi:id="_requirements_0" text="Observable highscore list">
+    <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_0" text="public interface ListListener" javaElement="ListListener_javaElements_0_classes_1">
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_0_requirements_0" text="public void method listChanged in ListListener" javaElement="listChanged_javaElements_0_classes_1_members_0">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_0_requirements_0_description'>The method <b>listChanged</b>, that is called when the <b>ObservableList</b> changes. It has receives three arguments: the ObservableList that has changed, the lowest index that has changed and the highest index that has changed. Note that both indices can be greater or equal to the list's size, since they may refer to indices that existed before the change, but not after. E.g. if the last element of the ObservableList is removed, both indices will be equal to the list's size.</div></description>
+      </requirements>
+      <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_0_description'>The <b>ListListener</b> interface is implemented by classes that want to be notified about changes to an <b>ObservableList</b>. It contains one method, <b>listChanged</b>, that is called when the <b>ObservableList</b> changes.</div></description>
+    </requirements>
+    <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_1" text="public abstract class ObservableList" javaElement="ObservableList_javaElements_0_classes_4">
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_1_requirements_0" text="public void method addListListener in ObservableList" javaElement="addListListener_javaElements_0_classes_4_members_0">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_1_requirements_0_description'>The <b>addListListener</b> method adds the ListListener argument to the set of ListListeners that are notified when this <b>ObservableList</b> changes.</div></description>
+        <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_0_requirements_1_requirements_0_comment'><i>Duplicate listeners are not allowed and order must be preserved.</i> Question: What kind of Collection should be used for holding the ListListeners, given these requirements?</div></comment>
+      </requirements>
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_1_requirements_1" text="public void method removeListListener in ObservableList" javaElement="removeListListener_javaElements_0_classes_4_members_1">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_1_requirements_1_description'>The <b>removeListListener</b> method removes the ListListener argument from the set of ListListeners that are notified when this ObservableList changes.</div></description>
+      </requirements>
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_1_requirements_2" text="protected void method fireListChanged in ObservableList" javaElement="fireListChanged_javaElements_0_classes_4_members_6">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_1_requirements_2_description'>The <b>fireListChanged</b> method takes two indices as argument, and notifies the ListListeners that this ObservableList has changed. The arguments correspond to those of ListListener.</div></description>
+        <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_0_requirements_1_requirements_2_comment'>This is a utility method that can be called from within ObservableList and from subclasses.</div></comment>
+      </requirements>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_1_requirements_3" text="Test with public void method testAddListListener in public class ObservableListTest in package oving9" javaElement="testAddListListener_javaElements_0_classes_5_members_2" points="5"/>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_1_requirements_4" text="Test with public void method testRemoveListListener in public class ObservableListTest in package oving9" javaElement="testRemoveListListener_javaElements_0_classes_5_members_3" points="5"/>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_1_requirements_5" text="Test with public void method testFireListChanged in public class ObservableListTest in package oving9" javaElement="testFireListChanged_javaElements_0_classes_5_members_1" points="10"/>
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_1_requirements_6" text="protected abstract List method getList in ObservableList" javaElement="getList_javaElements_0_classes_4_members_2">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_1_requirements_6_description'>The <b>getList</b> method returns a non-specialized <b>List</b>. The list must be the actual list that is observed. The method is abstract and hence must be implemented by (non-abstract) subclasses. <b>ObservableList</b> must use this method in its implementation if the <b>size</b>, <b>addElement</b> and <b>removeElement</b> methods.</div></description>
+        <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_0_requirements_1_requirements_6_comment'>Question: Why should this method be <b>protected</b> and not <b>private</b> or <b>public</b>?</div></comment>
+      </requirements>
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_1_requirements_7" text="public int method size in ObservableList" javaElement="size_javaElements_0_classes_4_members_5">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_1_requirements_7_description'>The <b>size</b> method returns the size of this <b>ObservableList</b>.</div></description>
+      </requirements>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_1_requirements_8" text="Test with public void method testGetList in public class ObservableListTest in package oving9" javaElement="testGetList_javaElements_0_classes_5_members_0" points="5"/>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_1_requirements_9" text="Test with public void method testSize in public class ObservableListTest in package oving9" javaElement="testSize_javaElements_0_classes_5_members_6" points="5"/>
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_1_requirements_10" text="protected void method addElement in ObservableList" javaElement="addElement_javaElements_0_classes_4_members_3">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_1_requirements_10_description'>The <b>addElement</b> method takes two arguments, an index and an element. The method adds the element at the provided index to this <b>ObservableList</b> and notifies the ListListeners about the change.</div></description>
+        <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_0_requirements_1_requirements_10_comment'>Take care to call the <b>fireListChanged</b> method with the correct indices, according to the requirements of the <b>ListListener.listChanged</b> method.</div></comment>
+      </requirements>
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_1_requirements_11" text="protected void method removeElement in ObservableList" javaElement="removeElement_javaElements_0_classes_4_members_4">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_1_requirements_11_description'>The <b>removeElement</b> method removes the element at the provided index from this <b>ObservableList</b> and notifies the ListListeners about the change.</div></description>
+        <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_0_requirements_1_requirements_11_comment'>Take care to call the <b>fireListChanged</b> method with the correct indices, according to the requirements of the <b>ListListener.listChanged</b> method.</div></comment>
+      </requirements>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_1_requirements_12" text="Test with public void method testAddElement in public class ObservableListTest in package oving9" javaElement="testAddElement_javaElements_0_classes_5_members_4" points="10"/>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_1_requirements_13" text="Test with public void method testRemoveElement in public class ObservableListTest in package oving9" javaElement="testRemoveElement_javaElements_0_classes_5_members_5" points="10"/>
+      <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_1_description'><b>ObservableList</b> implements support for adding and removing <b>ListListener</b> objects, notifying these listeners about changes to a list, and adding and removing elements with proper notifications.</div></description>
+      <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_0_requirements_1_comment'>Question: Why must this class be declared <b>abstract</b>?</div></comment>
+    </requirements>
+    <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_2" text="public class HighscoreList" javaElement="HighscoreList_javaElements_0_classes_2">
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_2_requirements_0" text="public constructor HighscoreList" javaElement="HighscoreList_javaElements_0_classes_2_members_0">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_2_requirements_0_description'>HighscoreList's constructor must take an int argument, that specifies the maximum size of the list. If the list becomes too large, by calling addResult too many times, the extra elements (lowest rated) must be automatically removed.</div></description>
+      </requirements>
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_2_requirements_1" text="public void method addResult in HighscoreList" javaElement="addResult_javaElements_0_classes_2_members_1">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_2_requirements_1_description'>The <b>addResult</b> method takes an element implementing the Comparable interface, and adds it to the list.</div></description>
+        <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_0_requirements_2_requirements_1_comment'>The element must be added at the appropriate position and the maximum size of the list must be considered.</div></comment>
+      </requirements>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_2_requirements_2" text="Test with public void method testAddResultOrderedLessThanMaxSize in public class HighscoreListTest in package oving9" javaElement="testAddResultOrderedLessThanMaxSize_javaElements_0_classes_3_members_1" points="5"/>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_2_requirements_3" text="Test with public void method testAddResultReversedLessThanMaxSize in public class HighscoreListTest in package oving9" javaElement="testAddResultReversedLessThanMaxSize_javaElements_0_classes_3_members_2" points="5"/>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_2_requirements_4" text="Test with public void method testAddResultOrderedMoreThanMaxSize in public class HighscoreListTest in package oving9" javaElement="testAddResultOrderedMoreThanMaxSize_javaElements_0_classes_3_members_3" points="5"/>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_2_requirements_5" text="Test with public void method testAddResultReversedMoreThanMaxSize in public class HighscoreListTest in package oving9" javaElement="testAddResultReversedMoreThanMaxSize_javaElements_0_classes_3_members_4" points="5"/>
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_0_requirements_2_requirements_6" text="public Iterator&lt;Comparable> method iterator in HighscoreList" javaElement="iterator_javaElements_0_classes_2_members_2">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_2_requirements_6_description'>The <b>iterator</b> method implements the corresponding method from the <b>Iterable&lt;Comparable&gt;</b> interface.</div></description>
+        <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_0_requirements_2_requirements_6_comment'>Question: How can this method be utilized by the <b>for</b> construct?</div></comment>
+      </requirements>
+      <requirements xsi:type="jex:JUnitTest" xmi:id="_requirements_0_requirements_2_requirements_7" text="Test with public void method testIterator in public class HighscoreListTest in package oving9" javaElement="testIterator_javaElements_0_classes_3_members_0" points="5"/>
+      <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_requirements_2_description'>The <b>HighscoreList</b> class contains a <i>limited</i> number of elements, e.g. game results, implementing the <b>Comparable</b> interface (to enable sorting). It inherits much of its implementation from <b>ObservableList</b>, e.g. its support for ListListeners.
+<p/>This class must implement the <b>Iterable&lt;Comparable&gt;</b> interface, to support the simplified <b>for</b> looping construct.</div></description>
+    </requirements>
+    <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_0_description'>In this part you will implement an observable highscore list, by means of a class <b>HighscoreList</b> inheriting from an abstract class <b>ObservableList</b>. Observability is based on the listener interface <b>ListListener</b>.
+<p/>
+<b>ObservableList</b> implements support for adding and removing <b>ListListener</b> objects, notifying these listeners about changes to a list, and adding and removing elements with proper notifications.
+<p/>
+<b>HighscoreList</b> contains elements, e.g. game results, implementing the <b>Comparable</b> interface. By inheriting from <b>ObservableList</b> it supports listening to changes to the highscores.</div></description>
+  </requirements>
+  <requirements xsi:type="jex:ExercisePart" xmi:id="_requirements_1" text="Highscore view observing observable highscore list (25 points).">
+    <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_1_requirements_0" text="public class HighscoreView in package oving9" javaElement="HighscoreView_javaElements_0_classes_0">
+      <requirements xsi:type="jex:JavaRequirement" xmi:id="_requirements_1_requirements_0_requirements_0" text="public void method run in public class HighscoreView in package oving9" javaElement="run_javaElements_0_classes_0_members_1" requiredFeatures="">
+        <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_1_requirements_0_requirements_0_description'>In this task, you will create a high score screen. A HighscoreView should use a HighscoreList and display the scores in it. It should update its display dynamically.
+
+To test your HighscoreView class, read console input from the user. Modify the HighscoreList by reading scores (e.g. using the provided SokobanResult class), and adding them to the list. HighscoreView should then refresh correctly.
+
+A running <b>HighscoreView</b> should be demonstrated.</div></description>
+        <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='_requirements_1_requirements_0_requirements_0_comment'>Question: How do you make sure <b>HighscoreView</b> is notified about changes to the <b>HighscoreList</b>?</div></comment>
+      </requirements>
+      <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='_requirements_1_requirements_0_description'>The <b>HighscoreView</b> class shows the elements of a <b>HighscoreList</b> in a window.</div></description>
+    </requirements>
+  </requirements>
+  <description><div xmlns='http://www.w3.org/1999/xhtml' class='description' id='__description'>ov9.pre.xml</div></description>
+  <comment><div xmlns='http://www.w3.org/1999/xhtml' class='comment' id='__comment'>This exercise deals with abstract classes and the observer pattern.</div></comment>
+</jex:Exercise>

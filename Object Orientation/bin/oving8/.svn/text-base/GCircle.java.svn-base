@@ -1,0 +1,6 @@
+package oving8;
+
+import acm.graphics.GObject;
+
+public class GCircle extends GObject {
+}
