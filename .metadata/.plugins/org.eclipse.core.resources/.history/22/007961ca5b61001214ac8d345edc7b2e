@@ -1,0 +1,7 @@
+package task1;
+
+import javax.swing.JPanel;
+
+public class ButtonsNText extends JPanel {
+
+}

@@ -1,0 +1,18 @@
+package task1;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class ButtonsNText extends JPanel {
+	
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Task 1");
+		frame.getContentPane().add(new )
+	}
+	
+	public ButtonsNText(){
+		add(new JButton("Click"));
+	}
+	
+}
