@@ -1,0 +1,41 @@
+DFS
+rec(n):
+	print n
+	for all children of n:
+		rec(c)
+		
+rec(n,d):
+	print n, d
+	for c:
+		rec(c, d+1)
+		
+
+		
+		
+BFS
+Queue q
+q.push(A)
+while(q is not empty):
+	n=q.pop()
+	print n
+	for children c of n:
+		q.push(c)
+		
+		
+		
+		
+		
+7.9.2010
+
+for all n:
+	n.color = white
+
+dfs(n):
+	n.color = gray
+	for all a adj. n:
+		if a.color = white:
+			dfs(a)
+	n.color = black
+	
+	
+	
