@@ -2,8 +2,6 @@ package task1;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -37,7 +35,7 @@ public class ButtonsNText extends JPanel {
 		
 		UpperCaseButton.addActionListener(new UpperCase());
 		LowerCaseButton.addActionListener(new LowerCase());
-		textLine.addKeyListener(new Type());
+		check.addActionListener(new Check());
 		
 		textLine.setColumns(20);
 		group.add(LowerCaseButton);
@@ -53,42 +51,27 @@ public class ButtonsNText extends JPanel {
 	class UpperCase implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			textLine.setText(textLine.getText().toUpperCase());
+			textLine.setText("UpperCase");
 		}
 	}
 	
 	class LowerCase implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			textLine.setText(textLine.getText().toLowerCase());
+			textLine.setText("LowerCase");
 		}
 	}
 	
-	class Type implements KeyListener{
-
+	class Check implements ActionListener{
 		@Override
-		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
+		public void actionPerformed(ActionEvent arg0) {
 			if(check.isSelected()){
-				if(UpperCaseButton.isSelected()){
-					textLine.setText(textLine.getText().toUpperCase());
-				}
-				else if(LowerCaseButton.isSelected()){
-					textLine.setText(textLine.getText().toLowerCase());
-				}
+				textLine.setText("Continuous");
+			}
+			else{
+				textLine.setText("Not continuous");
 			}
 		}
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-		}
-
 	}
 	
 }

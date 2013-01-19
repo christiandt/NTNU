@@ -68,7 +68,7 @@ public class ButtonsNText extends JPanel {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
+
 		}
 
 		@Override
@@ -87,6 +87,7 @@ public class ButtonsNText extends JPanel {
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
+
 		}
 
 	}

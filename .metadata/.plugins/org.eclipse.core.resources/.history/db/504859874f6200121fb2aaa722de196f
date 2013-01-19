@@ -68,11 +68,17 @@ public class ButtonsNText extends JPanel {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
+
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
 			if(check.isSelected()){
 				if(UpperCaseButton.isSelected()){
@@ -82,11 +88,6 @@ public class ButtonsNText extends JPanel {
 					textLine.setText(textLine.getText().toLowerCase());
 				}
 			}
-		}
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
 		}
 
 	}
