@@ -164,6 +164,7 @@ public class PersonPanel extends JPanel{
 		public void stateChanged(ChangeEvent e) {
 			if (model!=null){
 				model.setHeight(HeightPropertyComponent.getValue());
+				model.print();
 				
 			}
 		}
