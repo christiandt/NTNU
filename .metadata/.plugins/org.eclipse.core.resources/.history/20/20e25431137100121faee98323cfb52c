@@ -189,21 +189,6 @@ public class PersonPanel extends JPanel{
 		if(evt.getPropertyName() == "name"){
 			NamePropertyComponent.setText(model.getName());
 		}
-		else if(evt.getPropertyName() == "name"){
-			
-		}
-		else if(evt.getPropertyName() == "gender"){
-			
-		}
-		else if(evt.getPropertyName() == "dateOfBirth"){
-			
-		}
-		else if(evt.getPropertyName() == "email"){
-			
-		}
-		else if(evt.getPropertyName() == "height"){
-			
-		}
 	}
 	
 	

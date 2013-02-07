@@ -1,4 +1,4 @@
-package task2;
+package test;
 
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
@@ -57,7 +57,7 @@ public class Person {
 	public void setHeight(int height) {
 		int oldValue = this.height;
 		this.height = height;
-		pcs.firePropertyChange("height", oldValue, height);
+		pcs.firePropertyChange("", oldValue, height);
 	}
 	
 	public void print(){

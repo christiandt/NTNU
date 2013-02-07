@@ -27,4 +27,6 @@
 <fullyQualifiedTypeName name="task2.PersonPanel.heightChange"/>
 <fullyQualifiedTypeName name="javax.swing.event.ChangeListener"/>
 <fullyQualifiedTypeName name="task2.Gender"/>
+<fullyQualifiedTypeName name="java.beans.PropertyChangeSupport"/>
+<fullyQualifiedTypeName name="java.beans.PropertyChangeEvent"/>
 </qualifiedTypeNameHistroy>
