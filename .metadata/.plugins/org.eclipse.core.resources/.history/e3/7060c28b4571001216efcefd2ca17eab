@@ -13,7 +13,7 @@ public class Person {
 	
 	
 	public Person(String name){
-		this.name = name;
+		this.name = name
 		pcs = new PropertyChangeSupport(this);
 	}
 

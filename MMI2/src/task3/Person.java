@@ -1,4 +1,4 @@
-package task2;
+package task3;
 
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
@@ -17,7 +17,7 @@ public class Person {
 		pcs = new PropertyChangeSupport(this);
 	}
 
-	
+
 
 	public String getName() {
 		return name;
