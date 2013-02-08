@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -15,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class PersonPanel extends JPanel{
+public class PersonPanel extends JPanel implements PropertyChangeListener {
 	private Person model = null;
 	
 	private JLabel nameLabel;
@@ -32,7 +33,7 @@ public class PersonPanel extends JPanel{
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Task2");
 		PersonPanel panel = new PersonPanel();
-		panel.model = new Person("Frank");
+		panel.setModel(new Person("Frank"));
 		frame.getContentPane().add(panel);
 		frame.pack();
 		frame.setVisible(true);
@@ -174,6 +175,7 @@ public class PersonPanel extends JPanel{
 
 	public void setModel(Person person) {
 		this.model = person;
+		model.addPropertyChangeListener(this);
 		NamePropertyComponent.setText(this.model.getName());
 		EmailPropertyComponent.setText(this.model.getEmail());
 		DateOfBirthPropertyComponent.setText(this.model.getDateOfBirth());
@@ -184,25 +186,27 @@ public class PersonPanel extends JPanel{
 	public Person getModel(){
 		return model;
 	}
-	
+
+
+	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		if(evt.getPropertyName() == "name"){
-			NamePropertyComponent.setText(model.getName());
+		String event = evt.getPropertyName();
+		if(event.equals("name")){
+			NamePropertyComponent.setText(this.model.getName());
 		}
-		else if(evt.getPropertyName() == "name"){
-			
+		else if(event.equals("gender")){
+			if(this.model.getGender()!=null){
+				GenderPropertyComponent.setSelectedItem((this.model.getGender()));			
+			}
 		}
-		else if(evt.getPropertyName() == "gender"){
-			
+		else if(event.equals("dateOfBirth")){
+			DateOfBirthPropertyComponent.setText(this.model.getDateOfBirth());
 		}
-		else if(evt.getPropertyName() == "dateOfBirth"){
-			
+		else if(event.equals("email")){
+			EmailPropertyComponent.setText(this.model.getEmail());
 		}
-		else if(evt.getPropertyName() == "email"){
-			
-		}
-		else if(evt.getPropertyName() == "height"){
-			
+		else if(event.equals("height")){
+			HeightPropertyComponent.setValue(this.model.getHeight());
 		}
 	}
 	
