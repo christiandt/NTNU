@@ -1,0 +1,31 @@
+package task2;
+
+import javax.swing.JTextField;
+
+public class PassivePersonPanel extends PersonPanel {
+	
+	public PassivePersonPanel(){
+		super();
+		remove(GenderPropertyComponent);
+		remove(HeightPropertyComponent);
+		
+		c.gridx = 1;
+		c.gridy = 3;
+		JTextField GenderPropertyComponent = new JTextField(20);
+		add(GenderPropertyComponent, c);
+		
+		c.gridx = 1;
+		c.gridy = 4;
+		JTextField HeightPropertyComponent = new JTextField(20);
+		add(HeightPropertyComponent, c);
+		
+		NamePropertyComponent.setEditable(false);
+		EmailPropertyComponent.setEditable(false);
+		DateOfBirthPropertyComponent.setEditable(false);
+		GenderPropertyComponent.setEditable(false);
+		HeightPropertyComponent.setEditable(false);
+
+		
+		
+	}
+}

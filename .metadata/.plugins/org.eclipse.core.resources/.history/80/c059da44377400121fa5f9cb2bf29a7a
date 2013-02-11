@@ -1,0 +1,9 @@
+package task2;
+
+public class PassivePersonPanel extends PersonPanel {
+	
+	public PassivePersonPanel(){
+		super();
+		
+	}
+}

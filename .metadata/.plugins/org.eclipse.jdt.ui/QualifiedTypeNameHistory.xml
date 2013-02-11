@@ -22,11 +22,12 @@
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="task2.PersonPanel.nameChange"/>
 <fullyQualifiedTypeName name="task2.PersonPanel.emailChange"/>
-<fullyQualifiedTypeName name="task2.PersonPanel.dateChange"/>
 <fullyQualifiedTypeName name="task2.PersonPanel.genderChange"/>
 <fullyQualifiedTypeName name="task2.PersonPanel.heightChange"/>
 <fullyQualifiedTypeName name="javax.swing.event.ChangeListener"/>
 <fullyQualifiedTypeName name="task2.Gender"/>
 <fullyQualifiedTypeName name="java.beans.PropertyChangeSupport"/>
 <fullyQualifiedTypeName name="java.beans.PropertyChangeEvent"/>
+<fullyQualifiedTypeName name="java.beans.PropertyChangeListener"/>
+<fullyQualifiedTypeName name="task2.PersonPanel.dateChange"/>
 </qualifiedTypeNameHistroy>
