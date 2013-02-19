@@ -1,0 +1,7 @@
+package task2and3;
+
+import ListCellRender;
+
+public class PersonRender implements ListCellRender {
+
+}

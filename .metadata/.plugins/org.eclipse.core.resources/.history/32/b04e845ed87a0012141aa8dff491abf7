@@ -1,0 +1,34 @@
+package task2and3;
+
+import java.awt.Component;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
+import javax.swing.UIManager;
+
+
+public class PersonRender extends JLabel implements ListCellRenderer {
+
+	@Override
+	public Component getListCellRendererComponent(JList list, Object value,
+			int index, boolean isSelected, boolean cellHasFocus) {
+		Person person = (Person) value;
+		this.setText(person.getName());
+		this.setOpaque(true);
+		
+		if (isSelected){
+			this.setBackground(UIManager.getColor("List.selectionBackground"));
+		}
+		else{
+			this.setBackground(UIManager.getColor("List.background"));
+		}
+		
+		
+		ImageIcon icon = new ImageIcon();
+		icon.getImage();
+		return this;
+	}
+
+}

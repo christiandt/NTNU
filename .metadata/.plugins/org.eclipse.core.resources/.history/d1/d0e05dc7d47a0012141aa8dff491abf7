@@ -1,0 +1,22 @@
+package task2and3;
+
+import java.awt.Component;
+
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
+
+
+public class PersonRender implements ListCellRenderer {
+
+	@Override
+	public Component getListCellRendererComponent(JList list, Object value,
+			int index, boolean isSelected, boolean cellHasFocus) {
+		Person person = (Person) value;
+		
+		
+		
+		
+		return this;
+	}
+
+}
