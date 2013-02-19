@@ -1,0 +1,7 @@
+package task2and3;
+
+import javax.swing.JPanel;
+
+public class PersonListPanel extends JPanel {
+
+}

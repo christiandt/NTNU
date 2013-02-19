@@ -10,8 +10,6 @@
 <fullyQualifiedTypeName name="task1.ButtonsNText.Type"/>
 <fullyQualifiedTypeName name="java.awt.event.KeyListener"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
-<fullyQualifiedTypeName name="javax.swing.JFrame"/>
-<fullyQualifiedTypeName name="javax.swing.JTextField"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
 <fullyQualifiedTypeName name="javax.swing.JSlider"/>
 <fullyQualifiedTypeName name="java.awt.GridBagLayout"/>
@@ -30,4 +28,13 @@
 <fullyQualifiedTypeName name="java.beans.PropertyChangeEvent"/>
 <fullyQualifiedTypeName name="java.beans.PropertyChangeListener"/>
 <fullyQualifiedTypeName name="task2.PersonPanel.dateChange"/>
+<fullyQualifiedTypeName name="javax.naming.NameParser"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="task2.PassivePersonPanel"/>
+<fullyQualifiedTypeName name="javax.swing.JList"/>
+<fullyQualifiedTypeName name="task2and3.PersonPanel"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="task2and3.PersonListPanel"/>
+<fullyQualifiedTypeName name="javax.swing.DefaultListModel"/>
+<fullyQualifiedTypeName name="task2and3.Person"/>
 </qualifiedTypeNameHistroy>
