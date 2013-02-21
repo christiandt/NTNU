@@ -20,7 +20,6 @@ public class PersonRender extends JLabel implements ListCellRenderer {
 		this.setText(person.getName());
 		this.setOpaque(true);
 		
-		
 		if (isSelected){
 			this.setForeground(UIManager.getColor("List.selectionForeground"));
 			this.setBackground(UIManager.getColor("List.selectionBackground"));
@@ -29,7 +28,9 @@ public class PersonRender extends JLabel implements ListCellRenderer {
 			this.setForeground(UIManager.getColor("List.foreground"));
 			this.setBackground(UIManager.getColor("List.background"));
 		}
-				
+		
+		
+		
 		return this;
 	}
 

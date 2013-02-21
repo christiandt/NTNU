@@ -82,6 +82,9 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 	
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
+//		System.out.println(list.getModel().getSize());
+//		System.out.println(list.getSelectedValue());
+		
 		int newsize = list.getModel().getSize();
 		if(newsize == listSize){
 			panel.setModel((Person) list.getSelectedValue());			

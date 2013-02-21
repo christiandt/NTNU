@@ -14,12 +14,11 @@ public class PersonRender extends JLabel implements ListCellRenderer {
 	@Override
 	public Component getListCellRendererComponent(JList list, Object value,
 			int index, boolean isSelected, boolean cellHasFocus) {
-		icon = new ImageIcon("male.png");
+		icon = new ImageIcon(getClass().getClassLoader().getResource("male.png"));
 		Person person = (Person) value;
 		this.setIcon(icon);
 		this.setText(person.getName());
 		this.setOpaque(true);
-		
 		
 		if (isSelected){
 			this.setForeground(UIManager.getColor("List.selectionForeground"));

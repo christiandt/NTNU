@@ -82,12 +82,16 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 	
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
+//		System.out.println(list.getModel().getSize());
+//		System.out.println(list.getSelectedValue());
+		
 		int newsize = list.getModel().getSize();
 		if(newsize == listSize){
 			panel.setModel((Person) list.getSelectedValue());			
 		}
 		else if(newsize>0){
 				panel.setModel((Person) list.getModel().getElementAt(0));
+				//list.setSelectedIndex(newsize-1);
 		}
 		listSize = list.getModel().getSize();
 	}
@@ -140,8 +144,8 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 				DefaultListModel listModel = (DefaultListModel) list.getModel();
 				panel.setModel(person);
 				listModel.addElement(person);
+				list.setSelectedIndex(list.getModel().getSize()-1);
 				listSize = list.getModel().getSize();
-				list.setSelectedIndex(listSize-1);
 			}
 			else if(e.getSource()==deleteBtn){
 				Person person = (Person) list.getSelectedValue();

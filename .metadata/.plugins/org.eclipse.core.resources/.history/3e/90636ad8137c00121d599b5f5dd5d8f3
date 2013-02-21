@@ -9,17 +9,15 @@ import javax.swing.UIManager;
 
 
 public class PersonRender extends JLabel implements ListCellRenderer {
-	private ImageIcon icon;
-	
+	public ImageIcon icon;
 	@Override
 	public Component getListCellRendererComponent(JList list, Object value,
 			int index, boolean isSelected, boolean cellHasFocus) {
 		icon = new ImageIcon("male.png");
 		Person person = (Person) value;
-		this.setIcon(icon);
 		this.setText(person.getName());
+		this.setIcon(icon);
 		this.setOpaque(true);
-		
 		
 		if (isSelected){
 			this.setForeground(UIManager.getColor("List.selectionForeground"));
@@ -29,7 +27,9 @@ public class PersonRender extends JLabel implements ListCellRenderer {
 			this.setForeground(UIManager.getColor("List.foreground"));
 			this.setBackground(UIManager.getColor("List.background"));
 		}
-				
+		
+		
+		
 		return this;
 	}
 

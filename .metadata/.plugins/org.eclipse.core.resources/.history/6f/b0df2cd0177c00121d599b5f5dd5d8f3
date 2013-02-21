@@ -20,6 +20,7 @@ public class PersonRender extends JLabel implements ListCellRenderer {
 		this.setText(person.getName());
 		this.setOpaque(true);
 		
+		super.add(this);
 		
 		if (isSelected){
 			this.setForeground(UIManager.getColor("List.selectionForeground"));
