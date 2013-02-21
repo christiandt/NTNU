@@ -200,10 +200,11 @@ public class PersonPanel extends JPanel implements PropertyChangeListener {
 	
 	public void clear(){
 		this.model = null;
+		model.addPropertyChangeListener(this);
 		NamePropertyComponent.setText("");
 		EmailPropertyComponent.setText("");
 		DateOfBirthPropertyComponent.setText("");
-		GenderPropertyComponent.setSelectedIndex(-1);
+		GenderPropertyComponent.setSelectedItem("");
 		HeightPropertyComponent.setValue(0);
 	}
 

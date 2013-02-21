@@ -203,7 +203,7 @@ public class PersonPanel extends JPanel implements PropertyChangeListener {
 		NamePropertyComponent.setText("");
 		EmailPropertyComponent.setText("");
 		DateOfBirthPropertyComponent.setText("");
-		GenderPropertyComponent.setSelectedIndex(-1);
+		GenderPropertyComponent.setSelectedItem("");
 		HeightPropertyComponent.setValue(0);
 	}
 

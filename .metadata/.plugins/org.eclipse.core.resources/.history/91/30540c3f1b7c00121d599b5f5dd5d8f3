@@ -15,8 +15,8 @@ import javax.swing.event.ListSelectionListener;
 
 public class PersonListPanel extends JPanel implements ListSelectionListener {
 	private GridBagConstraints c;
-	protected JList list;
-	private PersonPanel panel;
+	public JList list;
+	protected PersonPanel panel;
 	private DefaultListModel model;
 	private JButton newBtn;
 	private JButton deleteBtn;
@@ -30,7 +30,6 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 		c.anchor = GridBagConstraints.WEST;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-		
 		list = new JList();
 		list.setName("PersonList");
 		list.setFixedCellWidth(150);
@@ -38,7 +37,6 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 		list.setCellRenderer(new PersonRender());
 		
 		setModel(model);
-		
 		
 		panel = new PersonPanel();
 		panel.setName("PersonPanel");
@@ -75,8 +73,7 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 
 	public void setModel(DefaultListModel model){
 		this.model = model;
-		list.setModel(this.model);
-		listSize = list.getModel().getSize();
+		this.list.setModel(this.model);
 	}
 	
 	public DefaultListModel getModel(){
@@ -86,15 +83,13 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		int newsize = list.getModel().getSize();
-		//System.out.println("old: "+listSize +"\nnew: "+newsize);
 		if(newsize == listSize){
 			panel.setModel((Person) list.getSelectedValue());			
 		}
-		else if(newsize>listSize){
-				panel.setModel((Person) list.getModel().getElementAt(newsize-1));
-				list.setSelectedIndex(newsize-1);
+		else if(newsize>0){
+				//panel.setModel((Person) list.getModel().getElementAt(0));
 		}
-		listSize = newsize;
+		listSize = list.getModel().getSize();
 	}
 	
 	public static void main(String[] args) {
@@ -120,13 +115,12 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 		
 		PersonListPanel personList = new PersonListPanel();
 		DefaultListModel listModel = new DefaultListModel();
+		personList.setModel(listModel);
 		
 		listModel.addElement(frank);
 		listModel.addElement(arne);
 		listModel.addElement(beate);
 		
-		personList.setModel(listModel);
-
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(personList);
 		frame.pack();
@@ -146,25 +140,13 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 				DefaultListModel listModel = (DefaultListModel) list.getModel();
 				panel.setModel(person);
 				listModel.addElement(person);
-				list.setSelectedIndex(listSize);
+				listSize = list.getModel().getSize();
+				list.setSelectedIndex(listSize-1);
 			}
 			else if(e.getSource()==deleteBtn){
 				Person person = (Person) list.getSelectedValue();
 				DefaultListModel listModel = (DefaultListModel) list.getModel();
-				int personIndex = listModel.indexOf(person);
 				listModel.removeElement(person);
-				if(personIndex>0){
-					list.setSelectedIndex(personIndex-1);
-					panel.setModel((Person) list.getModel().getElementAt(personIndex-1));
-				}
-				else if(personIndex==0 & listSize>0){
-					list.setSelectedIndex(personIndex);
-					panel.setModel((Person) list.getModel().getElementAt(personIndex));
-				}
-				else if(personIndex<=0){
-					panel.clear();
-				}
-				
 			}
 			
 		}
