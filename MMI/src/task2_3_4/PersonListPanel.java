@@ -1,4 +1,4 @@
-package task2and3;
+package task2_3_4;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -15,24 +15,30 @@ import javax.swing.event.ListSelectionListener;
 
 public class PersonListPanel extends JPanel implements ListSelectionListener {
 	private GridBagConstraints c;
-	private JList list;
-	protected PersonPanel panel;
+	protected JList list;
+	private PersonPanel panel;
 	private DefaultListModel model;
 	private JButton newBtn;
 	private JButton deleteBtn;
 	private int listSize;
 	
 	public PersonListPanel(){
+		model = new DefaultListModel();
+		
 		c = new GridBagConstraints();
 		setLayout(new GridBagLayout());
 		c.anchor = GridBagConstraints.WEST;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
+		
 		list = new JList();
 		list.setName("PersonList");
-		list.setFixedCellWidth(150);
+		list.setFixedCellWidth(190);
 		list.addListSelectionListener(this);
 		list.setCellRenderer(new PersonRender());
+		
+		setModel(model);
+		
 		
 		panel = new PersonPanel();
 		panel.setName("PersonPanel");
@@ -69,7 +75,8 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 
 	public void setModel(DefaultListModel model){
 		this.model = model;
-		this.list.setModel(this.model);
+		list.setModel(this.model);
+		listSize = list.getModel().getSize();
 	}
 	
 	public DefaultListModel getModel(){
@@ -78,41 +85,48 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 	
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-//		System.out.println(list.getModel().getSize());
-//		System.out.println(list.getSelectedValue());
-		
 		int newsize = list.getModel().getSize();
+		//System.out.println("old: "+listSize +"\nnew: "+newsize);
 		if(newsize == listSize){
 			panel.setModel((Person) list.getSelectedValue());			
 		}
-		else{
-			if(newsize>0){
-				panel.setModel((Person) list.getModel().getElementAt(0));
-				list.setSelectedIndex(0);				
-			}
+		else if(newsize>listSize){
+				panel.setModel((Person) list.getModel().getElementAt(newsize-1));
+				list.setSelectedIndex(newsize-1);
 		}
-		listSize = list.getModel().getSize();
+		listSize = newsize;
 	}
 	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Task 4");
+		
 		Person frank = new Person("Frank Arnesen");
-		frank.setDateOfBirth("10.10.2010");
+		frank.setDateOfBirth("10.10.1960");
 		frank.setEmail("test@test.no");
 		frank.setGender(Gender.male);
-		frank.setHeight(130);
+		frank.setHeight(180);
 		
 		Person arne = new Person("Arne Bjarnesen");
+		arne.setDateOfBirth("10.10.1985");
+		arne.setEmail("her@der.no");
+		arne.setGender(Gender.male);
+		arne.setHeight(175);
+		
 		Person beate = new Person("Beate Stakesen");
+		beate.setDateOfBirth("02.03.1990");
+		beate.setEmail("opp@ned.no");
+		beate.setGender(Gender.female);
+		beate.setHeight(160);
 		
 		PersonListPanel personList = new PersonListPanel();
 		DefaultListModel listModel = new DefaultListModel();
-		personList.setModel(listModel);
 		
 		listModel.addElement(frank);
 		listModel.addElement(arne);
 		listModel.addElement(beate);
 		
+		personList.setModel(listModel);
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(personList);
 		frame.pack();
@@ -128,16 +142,29 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 			JButton source = (JButton) e.getSource();
 
 			if(e.getSource()==newBtn){
-				Person person = new Person(panel.NamePropertyComponent.getText());
+				Person person = new Person("New Person");
 				DefaultListModel listModel = (DefaultListModel) list.getModel();
+				panel.setModel(person);
 				listModel.addElement(person);
-				list.setSelectedValue(person, true);
-				listSize = list.getModel().getSize();
+				list.setSelectedIndex(listSize);
 			}
 			else if(e.getSource()==deleteBtn){
 				Person person = (Person) list.getSelectedValue();
 				DefaultListModel listModel = (DefaultListModel) list.getModel();
+				int personIndex = listModel.indexOf(person);
 				listModel.removeElement(person);
+				if(personIndex>0){
+					list.setSelectedIndex(personIndex-1);
+					panel.setModel((Person) list.getModel().getElementAt(personIndex-1));
+				}
+				else if(personIndex==0 & listSize>0){
+					list.setSelectedIndex(personIndex);
+					panel.setModel((Person) list.getModel().getElementAt(personIndex));
+				}
+				else if(personIndex<=0){
+					panel.clear();
+				}
+				
 			}
 			
 		}

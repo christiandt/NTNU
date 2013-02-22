@@ -1,0 +1,84 @@
+package task2_3_4;
+
+import java.beans.PropertyChangeSupport;
+import java.beans.PropertyChangeListener;
+
+public class Person {
+	private String name;
+	private Gender gender;
+	private String dateOfBirth;
+	private String email;
+	private int height;
+	private PropertyChangeSupport pcs;
+	
+	
+	public Person(String name){
+		pcs = new PropertyChangeSupport(this);
+		this.name = name;
+	}
+
+	public void addPropertyChangeListener(PropertyChangeListener l) {
+		pcs.addPropertyChangeListener(l);
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		String oldValue = this.name;
+		this.name = name;
+		pcs.firePropertyChange("name", oldValue, name);
+	}
+	
+	public Gender getGender() {
+		return gender;
+	}
+	
+	public void setGender(Gender gender) {
+		Gender oldValue = this.gender;
+		this.gender = gender;
+		pcs.firePropertyChange("gender", oldValue, gender);
+	}
+	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	
+	public void setDateOfBirth(String dateOfBirth) {
+		String oldValue = this.dateOfBirth;
+		this.dateOfBirth = dateOfBirth;
+		pcs.firePropertyChange("dateOfBirth", oldValue, dateOfBirth);
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		String oldValue = this.email;
+		this.email = email;
+		pcs.firePropertyChange("email", oldValue, email);
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+	public void setHeight(int height) {
+		int oldValue = this.height;
+		this.height = height;
+		pcs.firePropertyChange("height", oldValue, height);
+	}
+	
+	public void print(){
+		System.out.println("Name: "+this.name);
+		System.out.println("Email: "+this.email);
+		System.out.println("Gender: "+this.gender.toString());
+		System.out.println("Birth: "+this.dateOfBirth);
+		System.out.println("Height: "+this.height);
+	}
+	
+	
+	
+}
