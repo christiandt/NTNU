@@ -17,12 +17,7 @@ public class PersonRender extends JLabel implements ListCellRenderer {
 		icon = new ImageIcon("male.png");
 		Person person = (Person) value;
 		this.setIcon(icon);
-		if(person.getEmail()!=null){
-			this.setText(person.getName()+" ("+person.getEmail()+")");
-		}
-		else{
-			this.setText(person.getName()+" ()");
-		}
+		this.setText(person.getName());
 		this.setOpaque(true);
 		
 		

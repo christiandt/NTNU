@@ -33,7 +33,7 @@ public class PersonListPanel extends JPanel implements ListSelectionListener {
 		
 		list = new JList();
 		list.setName("PersonList");
-		list.setFixedCellWidth(190);
+		//list.setFixedCellWidth(175);
 		list.addListSelectionListener(this);
 		list.setCellRenderer(new PersonRender());
 		
